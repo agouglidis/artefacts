@@ -8,7 +8,7 @@ vars == <<x>>
  
 Init == x = 1.45
 
-Next == x' = 0.5 * ( x + 2.0/x )        
+Next == x' = ( x + 2.0/x ) / 2.0       
         
 Spec == Init /\ [][Next]_vars
 
