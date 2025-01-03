@@ -19,8 +19,8 @@ Spec == Init /\ [][Next]_<<x, rError>> /\ WF_<<x, rError>>(Next)
 (*
 --------------------------------------------- INITIALISATION INFORMATION ---------------------------------------------
 
-Looking for the route of: 2.0.
-Starting positive route approximation set to: 1.45.
+Looking for the root of: 2.0.
+Starting positive root approximation set to: 1.45.
 Initial relative error set to 1.0.
 Target relative error set to 0.0000000001 to be proved in end of 10 steps.
 One square root of 2 is approximately -1.4142135623?.
@@ -164,7 +164,9 @@ THEOREM Spec => ( ( (x = 1.45) /\ (rError = 1.0) ) ~> (rError <= 0.0000000001) )
  BY DEF Next
 
 <1>. QED BY <1>11, <1>12, <1>13, <1>21, <1>22, <1>23, <1>31, <1>32, <1>33, <1>41, <1>42, <1>43, <1>51, <1>52, <1>53, <1>61, <1>62, <1>63, <1>71, <1>72, <1>73, <1>81, <1>82, <1>83, <1>91, <1>92, <1>93, <1>101, <1>102, <1>103, PTL DEF Spec
+
+
 ============================================================================
 \* Modification History
-\* Last modified Fri Jan 03 11:49:55 GMT 2025 by agouglidis
+\* Last modified Fri Jan 03 11:54:48 GMT 2025 by agouglidis
 \* Created Wed Oct 16 19:12:34 GMT 2024 by agouglidis
