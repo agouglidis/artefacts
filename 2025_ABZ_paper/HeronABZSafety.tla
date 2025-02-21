@@ -45,8 +45,9 @@ THEOREM TypeInvariant == Spec => []TypeRealOK
 
 \* Candidate inductive invariant
 IInv == x*x - 2.0 >= 0.0
-    
-P == /\ x >= 1.4142135623
+
+\* Safety property    
+P == /\ x >= 1.4142135623 \* Value of √2 by Z3 solving α^2 = 2. 10 dp accuracy
      /\ x <= 1.45       
 
 \* Prove: (1.) 
@@ -59,37 +60,6 @@ THEOREM TypeRealOK /\ Init /\ IInv => P
       OBVIOUS
     <1> QED BY Z3 DEF Init, IInv, P, TypeRealOK
 
-
-THEOREM Spec => []P
-    \*Base case:
-    <1>1. Init => P
-        BY Z3 DEF Init, P
-
-    <1>2. TypeRealOK /\  P /\ [Next]_vars =>  P'
-        <2> SUFFICES ASSUME TypeRealOK,
-                             P,
-                            [Next]_vars
-            PROVE   P'
-            OBVIOUS
-        <2>. USE DEF Init, TypeRealOK, P
-            <2>1. CASE Next
-                <3>1. P'
-                    BY <2>1, Z3, PTL DEF Next
-                <3>2. QED
-                    BY <3>1
-    
-            <2>2. CASE UNCHANGED vars
-                BY <2>2 DEF vars
-            <2>3. QED
-                <3>1. CASE Next
-                    BY <3>1, <2>1, <2>2 DEF Next
-                <3>2. CASE UNCHANGED vars
-                    BY <3>2, <2>1, <2>2 DEF Next
-                <3>3. QED
-                    BY <3>1, <3>2
-    
-    <1>. QED  BY <1>1, <1>2, TypeInvariant, PTL DEF Spec        
-        
 
 \* Prove (2.) 
 \* x*x - S >= 0.0 is an inductive invariant of the system
@@ -123,6 +93,38 @@ THEOREM Spec => []IInv
                     BY <3>1, <3>2
     
     <1>. QED  BY <1>1, <1>2, TypeInvariant, PTL DEF Spec  
+
+\* Proving the safety property (8)
+THEOREM Spec => []P
+    \*Base case:
+    <1>1. Init => P
+        BY Z3 DEF Init, P
+
+    <1>2. TypeRealOK /\  P /\ [Next]_vars =>  P'
+        <2> SUFFICES ASSUME TypeRealOK,
+                             P,
+                            [Next]_vars
+            PROVE   P'
+            OBVIOUS
+        <2>. USE DEF Init, TypeRealOK, P
+            <2>1. CASE Next
+                <3>1. P'
+                    BY <2>1, Z3, PTL DEF Next
+                <3>2. QED
+                    BY <3>1
+    
+            <2>2. CASE UNCHANGED vars
+                BY <2>2 DEF vars
+            <2>3. QED
+                <3>1. CASE Next
+                    BY <3>1, <2>1, <2>2 DEF Next
+                <3>2. CASE UNCHANGED vars
+                    BY <3>2, <2>1, <2>2 DEF Next
+                <3>3. QED
+                    BY <3>1, <3>2
+    
+    <1>. QED  BY <1>1, <1>2, TypeInvariant, PTL DEF Spec        
+        
 
 =============================================================================
 \* Modification History
