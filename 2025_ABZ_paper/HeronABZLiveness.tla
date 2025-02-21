@@ -19,8 +19,8 @@ Spec == Init /\ [][Next]_<<x, rError>> /\ WF_<<x, rError>>(Next)
 (*
 --------------------------------------------- INITIALISATION INFORMATION ---------------------------------------------
 
-Looking for the root of: 2.0.
-Starting positive root approximation set to: 1.45.
+Root of: 2.0.
+Initial positive root approximation set to: 1.45.
 Initial relative error set to 1.0.
 Target relative error set to 0.0000000001 to be proved in end of 10 steps.
 One square root of 2 is approximately -1.4142135623?.
