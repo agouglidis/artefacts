@@ -1,4 +1,4 @@
--------------------------- MODULE HeronABZLiveness --------------------------
+-------------------------- MODULE HeronABZLivenessR2 --------------------------
 
 EXTENDS TLAPS, Reals
 
@@ -24,7 +24,7 @@ Initial positive root approximation set to: 1.45.
 Initial relative error set to: 1.0.
 Target relative error set to: 0.0000000001, to be achieved after 10 steps.
 One square root of: 2.0, is approximately -1.4142135623?.
-The square roots of: 2.0, expressed as a rational number, are +/-14142135623/10000000000 with an approximation accurate to: 10 decimal places.
+The square roots of: 2.0, expressed as a rational number, are +/-14142135623/10000000000 with accuracy set up to: 10 decimal places.
 
 --------------------------------------------- FUNCTIONS EVALUATION ---------------------------------------------
 
