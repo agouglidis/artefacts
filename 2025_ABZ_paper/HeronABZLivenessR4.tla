@@ -4,7 +4,7 @@
 EXTENDS TLAPS, Reals
 
 VARIABLES 
-x, rError \* A positive initial estimate
+x, rError 
 
 Init == /\ x = 1.45
         /\ rError = 1.0
